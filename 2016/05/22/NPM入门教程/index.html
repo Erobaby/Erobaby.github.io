@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>NPM入门教程 | Erobaby Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NPM作为Node的模块管理和发布工具，作用与Ruby的gem、Python的pypl或setuptools、PHP的pear和.Net的Nuget一样。在当前前端工程化极速狂奔的年代，即使不做nodejs的开发，也需要学习和使用NPM的，谁叫grunt、bower、yeoman这一堆的工具都通过NPM发布呢？！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NPM入门教程">
+<meta property="og:url" content="http://erobaby.me/2016/05/22/NPM入门教程/index.html">
+<meta property="og:site_name" content="Erobaby Blog">
+<meta property="og:description" content="NPM作为Node的模块管理和发布工具，作用与Ruby的gem、Python的pypl或setuptools、PHP的pear和.Net的Nuget一样。在当前前端工程化极速狂奔的年代，即使不做nodejs的开发，也需要学习和使用NPM的，谁叫grunt、bower、yeoman这一堆的工具都通过NPM发布呢？！">
+<meta property="og:image" content="http://images.cnitblog.com/blog/347002/201412/231712452182038.png">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:updated_time" content="2016-05-22T16:26:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NPM入门教程">
+<meta name="twitter:description" content="NPM作为Node的模块管理和发布工具，作用与Ruby的gem、Python的pypl或setuptools、PHP的pear和.Net的Nuget一样。在当前前端工程化极速狂奔的年代，即使不做nodejs的开发，也需要学习和使用NPM的，谁叫grunt、bower、yeoman这一堆的工具都通过NPM发布呢？！">
+<meta name="twitter:image" content="http://images.cnitblog.com/blog/347002/201412/231712452182038.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Erobaby Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Erobaby</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">做一个欢乐的搬砖工</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/favourite">网站收藏</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:wwb0111@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/erobaby" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/erobaby" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/p/1005053617621242" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/动漫/" style="font-size: 10px;">动漫</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://MOxFIVE.github.io/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.vsay.cn/">DoubleV</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ccwebsite.com/">兮兮</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.dandyweng.com/">翁天信</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.plqblog.com/views/index.php">潘利强</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.hankin.cn/">hankin</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.waydrow.com/">waydrow</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Erobaby</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Erobaby</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">做一个欢乐的搬砖工</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/favourite">网站收藏</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:wwb0111@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/erobaby" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/erobaby" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/p/1005053617621242" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-NPM入门教程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/22/NPM入门教程/" class="article-date">
+      <time datetime="2016-05-22T15:47:40.000Z" itemprop="datePublished">2016-05-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      NPM入门教程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>NPM作为Node的模块管理和发布工具，作用与Ruby的gem、Python的pypl或setuptools、PHP的pear和.Net的Nuget一样。在当前前端工程化极速狂奔的年代，即使不做nodejs的开发，也需要学习和使用NPM的，谁叫grunt、bower、yeoman这一堆的工具都通过NPM发布呢？！</strong><br><a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>转载自<a href="http://www.cnblogs.com/fsjohnhuang/p/4178019.html" target="_blank" rel="external">Node魔法堂：NPM入了个门</a></p>
+<div id="cnblogs_post_body"><br><br><span style="font-size: 18px; background-color: #888888;"><strong>一、前言　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span><br><br>&nbsp; NPM作为Node的模块管理和发布工具，作用与Ruby的gem、Python的pypl或setuptools、PHP的pear和.Net的Nuget一样。在当前前端工程化极速狂奔的年代，即使不做nodejs的开发，也需要学习和使用NPM的，谁叫grunt、bower、yeoman这一堆的工具都通过NPM发布呢？！<br><br>&nbsp; 本文为针对非nodejs的开发者整理的NPM使用说明。当然最好的教程还是官网的啦！<br><br>&nbsp;<br><br><span style="font-size: 18px; background-color: #888888;"><strong>二、什么是包？　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span><br><br>&nbsp; nodejs以包的形式组织程序模块，而包的定义却十分简单——包含文件内容符合规范package.json文件的目录或归档文件。并通过&lt;package-name&gt;@&lt;version&gt;来唯一标识每个包。<br><br>&nbsp;&nbsp;<br><br><span style="font-size: 16px; background-color: #888888;"><strong>三、灵魂——package.json　　　　　　　　　　　　　　　　　　　　　　　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</strong></span><br><br>&nbsp;<img src="http://images.cnitblog.com/blog/347002/201412/231712452182038.png" alt="">&nbsp;<br><br>&nbsp; 包的定义和NPM都围绕着package.json文件做文章，package.json文件其实就相当于JAVA中的MANIFEST.MF文件，用于存放模块的名称、版本、作者、机构、模块入口、依赖项等信息。首先我们通过&nbsp;<span class="cnblogs_code">npm init</span>&nbsp;命令在当前工作目录下以用户引导的方式创建一个全新的package.json文件。然后通过&nbsp;<span class="cnblogs_code">npm help json</span>&nbsp;命令打开帮助文档，并根据实际的项目需求自行初始化package.json的项目即可。下面将对基础配置项进行叙述。<br><br>&nbsp; <strong>name</strong>，必选项，表示模块名称。命名时不能包含js、node、和url中需要转义的字符，不能以.和_为开头。<br><br>&nbsp; <strong>version</strong>，必选项，表示模块的版本号。版本号以&nbsp;<span class="cnblogs_code">主版本号(Major).副版本号(Minor).补丁版本号(Patch)</span>&nbsp;构成（如1.2.0）。而engines、dependencies和devDependencies等配置项中可使用语义化版本号语法，具体如下：<span style="color: #ff0000;">（注意：版本号格式不对的话，在执行npm install时会报警告哦！</span>）<br><br>&gt; <strong>1.1.1</strong>：精确下载安装1.1.1版本的包<br>&gt; <strong>&gt;、&lt;=、&gt;、&gt;=1.1.1</strong>：分别表示下载安装大于、小于等于、大于等于1.1.1版本的包<br>&gt; <strong>1.0.1-1.1.1</strong>：表示版本范围是包含1.0.1到1.1.1版本的包<br>&gt; <strong>~1.1.1</strong>：表示尽量采用靠近1.1.1版本的包，但可用的包版本范围是1.1.1-0到1.1.x-x版本的包<br>&gt; <strong>~1.1</strong>：表示下载安装1.1.x-x版本的包<br>&gt; <strong>~1</strong>：表示下载安装1.x.x-x版本的包<br>&gt; <strong>^1.1.1</strong>：表示包版本范围是1.1.1到1.x.x-x<br>&gt; <strong>^0.1.1</strong>：表示包版本范围是1.1.1到1.1.x-x<br>&gt; <strong>^1.1</strong>：表示包版本范围是1.1.x-x到1.x.x-x<br>&gt; <strong>^1</strong>：表示包版本范围是1.x.x-x<br>&gt; <strong>空格、x、*</strong>：表示任意版本即可<br>&gt; 两个版本选择器间，空格表示and关系，||表示or关系。<br><br>&nbsp; <strong>main</strong>，必选项，模块入口文件相对路径（相对于模块根目录）。<br><br><strong>&nbsp; description</strong>，可选项，表示模块功能描述，显示在&nbsp;<span class="cnblogs_code">npm search &lt;package-name&gt;</span>&nbsp;中<br><br>&nbsp; <strong>keywords</strong>，可选项，数组类型，表示模块的关键字，显示在&nbsp;<span class="cnblogs_code">npm search &lt;package-name&gt;</span>&nbsp;中<br>&nbsp; <strong>author</strong>，可选项，表示发起者信息。示例如下：<br><br><div class="cnblogs_code"><br><pre><span style="color: #800000;">“</span><span style="color: #800000;">author</span><span style="color: #800000;">“</span><span style="color: #000000;">:{<br>    </span><span style="color: #800000;">“</span><span style="color: #800000;">name</span><span style="color: #800000;">“</span>: <span style="color: #800000;">“</span><span style="color: #800000;">fsjohnhuang</span><span style="color: #800000;">“</span><span style="color: #000000;">,<br>    </span><span style="color: #800000;">“</span><span style="color: #800000;">url</span><span style="color: #800000;">“</span>: <span style="color: #800000;">“</span><span style="color: #800000;"><a href="http://fsjohnhuang.cnblogs.com/" target="_blank" rel="external">http://fsjohnhuang.cnblogs.com/</a></span><span style="color: #800000;">“</span><span style="color: #000000;"><br>}</span></pre><br></div>
+
+<p>&nbsp; <strong>engines</strong>，可选项，依赖的node版本。示例如下：</p>
+<div class="cnblogs_code"><br><pre><span style="color: #800000;">“</span><span style="color: #800000;">engines</span><span style="color: #800000;">“</span><span style="color: #000000;">:{<br>    </span><span style="color: #800000;">“</span><span style="color: #800000;">node</span><span style="color: #800000;">“</span>: <span style="color: #800000;">“</span><span style="color: #800000;">&gt;= 0.8.0</span><span style="color: #800000;">“</span><span style="color: #000000;"><br>}</span></pre><br></div>
+
+<p>&nbsp; <strong>repository</strong>，可选项，源码托管地址。示例如下：</p>
+<div class="cnblogs_code"><br><pre><span style="color: #800000;">“</span><span style="color: #800000;">repository</span><span style="color: #800000;">“</span><span style="color: #000000;">:{<br>    </span><span style="color: #800000;">“</span><span style="color: #800000;">type</span><span style="color: #800000;">“</span>: <span style="color: #800000;">“</span><span style="color: #800000;">git</span><span style="color: #800000;">“</span><span style="color: #000000;">,<br>    </span><span style="color: #800000;">“</span><span style="color: #800000;">url</span><span style="color: #800000;">“</span>: <span style="color: #800000;">“</span><span style="color: #800000;"><a href="https://github.com/fsjohnhuang/iPromise.git" target="_blank" rel="external">https://github.com/fsjohnhuang/iPromise.git</a></span><span style="color: #800000;">“</span><span style="color: #000000;"><br>}</span></pre><br></div>
+
+<p>&nbsp; <strong>scripts</strong>，可选项，自定义在cli中输入&nbsp;<span class="cnblogs_code">npm &lt;script&gt;</span>&nbsp;时实际执行的程序。npm默认提供大量的script供我们调用。</p>
+<p>&nbsp; <strong>dependencies</strong>和<strong>devDependencies</strong>，可选项，用于配置模块的生产环境依赖包和开发环境依赖包。当执行npm install时，npm会根据这两个配置项的值去下载安装相关的依赖包。两者的区别是devDependencies是模块开发过程的依赖包（如：grunt只在开发时有用的模块），并且当其他模块需要依赖当前模块时，当通过npm install &lt;package-name&gt;时会自动下载安装dependencies的包而不会下载devDependencies的包。</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong>四、NPM的配置信息　　　　　　　　　　　　　　　　　　　　　　　　&nbsp;
+</strong></span></p>
+<p>&nbsp; 现在我们对package.json有一定的了解了，现在就到理论+实践时间咯。在实践之前我们要先配置一下NPM的资源库（国内被墙，你懂的），内网用户还要配置一下网络代理地址等信息。</p>
+<p>&nbsp; 查看部分配置信息——&nbsp;<span class="cnblogs_code">npm config ls</span>&nbsp;</p>
+<p>&nbsp; 查看所有配置信息——&nbsp;<span class="cnblogs_code">npm config ls -l</span>&nbsp;</p>
+<p>&nbsp; 修改配置信息的三种方式：</p>
+<p>&nbsp; 1. 修改用户家目录的.npmrc文件（没有则新建一个）；</p>
+<p>&nbsp; 2. 通过&nbsp;<span class="cnblogs_code">npm config <span style="color: #0000ff;">set</span> &lt;config&gt; &lt;config-value&gt;</span>&nbsp;命令；</p>
+<div class="cnblogs_code"><br><pre>npm config <span style="color: #0000ff;">set</span> registry http:<span style="color: #008000;">//</span><span style="color: #008000;">registry.npm.taobao.org/</span><br>npm config <span style="color: #0000ff;">set</span> proxy http:<span style="color: #008000;">//</span><span style="color: #008000;">proxy.com:8081/</span></pre><br></div>
+
+<p>&nbsp; 3. 通过–registry=&lt;registry-uri&gt;等命令可选项临时配置。</p>
+<div class="cnblogs_code"><br><pre>npm install grunt –registry=http:<span style="color: #008000;">//</span><span style="color: #008000;">registry.npm.taobao.org</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong>五、查找、安装/卸载、更新依赖包　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>&nbsp; 在安心玩耍之前我们要先了解一件事件，就是包的作用范围分为 <strong>全局</strong> 和 <strong>本地</strong> 两种。</p>
+<p>&nbsp; <strong>全局</strong>：用作在cli上直接调用，而无法在项目中通过require导入依赖包。如将grunt-cli安装到全局时，则可在cli中输入grunt调用了！</p>
+<div class="cnblogs_code"><br><pre>npm install -g grunt-cli</pre><br></div>
+
+<p>&nbsp;cmd或shell中直接调用</p>
+<div class="cnblogs_code"><br><pre>&gt; grunt</pre><br></div>
+
+<p>&nbsp; <strong>本地</strong>：用作在项目中通过require导入依赖包，供项目使用。</p>
+<p>&nbsp; 那么全局和本地的依赖包到底是存放在哪里的呢？通过&nbsp;<span class="cnblogs_code">npm root -g</span>&nbsp;和&nbsp;<span class="cnblogs_code">npm root</span>&nbsp;可分别查看全局和本地的依赖包下载安装的绝对目录了。本地的依赖包会存放在当前项目根目录下的node_modules目录下。</p>
+<p>&nbsp; 现在我们可以正式操作依赖包了！</p>
+<p><strong>&nbsp; 搜索阶段（操作远程资源库中的依赖包）</strong></p>
+<p>&nbsp; 1. 搜索依赖包，&nbsp;<span class="cnblogs_code">npm search &lt;package-name&gt;</span>&nbsp;。</p>
+<p>&nbsp; 2. 查看依赖包的package.json信息，&nbsp;<span class="cnblogs_code">npm view &lt;package-name&gt;</span>&nbsp;。另外我们可以单独查看package.json某个配置。</p>
+<div class="cnblogs_code"><br><pre>查看包的依赖关系：<code>npm view &amp;lt;package-name&amp;gt; dependencies</code><span style="color: #000000;"><br>查看包的源文件地址：<code>npm view &lt;/span&gt;&amp;lt;package-name&amp;gt; repository.url</code><span style="color: #000000;"><br>查看包所依赖的node版本号：<code>npm view &lt;/span&gt;&amp;lt;package-name&amp;gt; engines</code></span></span></pre><br></div>
+
+<p><strong>&nbsp; 查看本地包信息</strong></p>
+<p>&nbsp; 1.&nbsp;查看当前项目的本地依赖包，&nbsp;<span class="cnblogs_code">npm list</span>&nbsp;</p>
+<p>&nbsp; 2.&nbsp;查看全局依赖包，&nbsp;<span class="cnblogs_code">npm list -g</span>&nbsp;</p>
+<p>&nbsp; 3. 查看本地依赖包是否不是最新版，&nbsp;<span class="cnblogs_code">npm outdated &lt;package-name&gt;</span>&nbsp;</p>
+<p><strong>&nbsp; 安装/卸载，更新包</strong></p>
+<p>&nbsp; &nbsp;1. 安装本地/全局依赖包，&nbsp;<span class="cnblogs_code">npm install &lt;package-name&gt;</span>&nbsp; / &nbsp;<span class="cnblogs_code">npm install -g &lt;package-name&gt;</span> （这样会下载安装最新的包，若下载安装特定版本号的包则&nbsp;<span class="cnblogs_code">npm install &lt;package-name&gt;@&lt;version&gt;</span>&nbsp;）</p>
+<p>&nbsp; &nbsp;2. 卸载本地/全局依赖包，&nbsp;<span class="cnblogs_code">npm uninstall &lt;package-name&gt;</span> /&nbsp;<span class="cnblogs_code">npm uninstall -g &lt;package-name&gt;</span>&nbsp;</p>
+<p>&nbsp; &nbsp;3. 更新本地/全局依赖包，&nbsp;<span class="cnblogs_code">npm update &lt;package-name&gt;</span> /&nbsp;<span class="cnblogs_code">npm update -g &lt;package-name&gt;</span>&nbsp;</p>
+<p>&nbsp; &nbsp;</p>
+<p><span style="background-color: #888888; font-size: 18px;"><strong>六、发布包　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>&nbsp; 站在使用者的角度，掌握上述章节的内容已经足够了，但当我们开发出好玩的项目而且又想和大家分享时，那么下面的内容就不得不了解了！</p>
+<p>&nbsp; 1. 注册一个registry帐号，&nbsp;<span class="cnblogs_code">npm adduser</span> ，然后根据引导输入帐号、密码和邮箱地址。</p>
+<p>&nbsp; 2. 登录registry帐号，&nbsp;<span class="cnblogs_code">npm login</span> ，登录信息会保存在客户端。</p>
+<p>&nbsp; 3. 发布项目，&nbsp;<span class="cnblogs_code">npm publish</span> 。（建议发布版本从1.0.0开始）</p>
+<p>&nbsp; 经过上述步骤我们就可发布模块了。但这个时候你也许会考虑到项目中部分目录和文件不应该被发布出去，应该有一个像.gitignore的文件来配置这些排除项。看来你猜对了，那就是.npmignore文件，不过npm做得更灵活一些！</p>
+<p>&nbsp; 1. 默认不带.npmignore文件，若项目中带.gitignore则使用.gitignore文件内容的配置项；</p>
+<p>&nbsp; 2. 若带.npmignore文件则不使用.gitignore文件中的配置项；</p>
+<p>&nbsp; 3. 即使配置.npmignore文件，也无法排除package.json和README.*文件；</p>
+<p>&nbsp; 4. NPM内置设定以下文件必须被排除</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0" target="_blank" rel="external"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>; “复制代码”)</span></div><br><pre>.<em><span style="color: #000000;">.swp<br>.</span></em><span style="color: #000000;">.swp<br>._</span><em><span style="color: #000000;"><br>.DS_Store<br>.git<br>.hg<br>.</span><span style="color: #0000ff;">lock</span>-<span style="color: #000000;">wscript<br>.svn<br>.wafpickle</span>-</em><span style="color: #000000;"><br>CVS<br>npm</span>-debug.log</pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0" target="_blank" rel="external"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>; “复制代码”)</span></div></div>
+
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong>七、总结　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>&nbsp; 现在我们终于可以安心下载各种node依赖包来推进前端工程化的步伐了！&nbsp;</p>
+<p>&nbsp; 尊重原创，转载请注明来自：<a href="http://www.cnblogs.com/fsjohnhuang/p/4178019.html" title="view: Node魔法堂：NPM那个入门" target="_blank" rel="external">http://www.cnblogs.com/fsjohnhuang/p/4178019.html</a>^_^肥仔John</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong>八、参考　　　　　　　　　　　　　　　　　　　　　　　　　　 &nbsp; &nbsp;　　</strong></span></p>
+<p><a href="http://www.cnblogs.com/linjiqin/p/3765772.html" target="_blank" rel="external">http://www.cnblogs.com/linjiqin/p/3765772.html</a><br><a href="http://www.infoq.com/cn/articles/nodejs-npm-install-config/" target="_blank" rel="external">http://www.infoq.com/cn/articles/nodejs-npm-install-config/</a><br><a href="http://www.infoq.com/cn/articles/msh-using-npm-manage-node.js-dependence" target="_blank" rel="external">http://www.infoq.com/cn/articles/msh-using-npm-manage-node.js-dependence</a><br></p></div><p></p>
+</the>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/05/22/NPM入门教程/">NPM入门教程</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Erobaby 的个人博客">Erobaby</a></p>
+        <p><span>发布时间:</span>2016年05月22日 - 23时47分</p>
+        <p><span>最后更新:</span>2016年05月23日 - 00时26分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/22/NPM入门教程/" title="NPM入门教程">http://erobaby.me/2016/05/22/NPM入门教程/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://erobaby.me/2016/05/22/NPM入门教程/　　作者: Erobaby" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/22/寄生兽/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">寄生兽</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/05/22/NPM入门教程/" data-title="NPM入门教程" data-url="http://erobaby.me/2016/05/22/NPM入门教程/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"erobaby"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016/05/22/寄生兽/" title="下一篇: 寄生兽">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/NPM入门教程/">NPM入门教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/寄生兽/">寄生兽</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/02/hello-world/">Hello World</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Erobaby
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >访问数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
