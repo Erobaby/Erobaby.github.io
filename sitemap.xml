@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://erobaby.me/sites/index.html</loc>
+    <loc>http://erobaby.me/404.html</loc>
     
-    <lastmod>2016-04-05T15:19:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://erobaby.me/about/index.html</loc>
-    
-    <lastmod>2016-04-05T15:18:27.000Z</lastmod>
+    <lastmod>2016-05-22T08:21:21.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://erobaby.me/2016/04/02/My-First-Post/</loc>
     
-    <lastmod>2016-04-05T15:01:57.000Z</lastmod>
+    <lastmod>2016-05-22T07:53:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://erobaby.me/about/index.html</loc>
+    
+    <lastmod>2016-05-22T07:49:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://erobaby.me/sites/index.html</loc>
+    
+    <lastmod>2016-04-05T15:19:56.000Z</lastmod>
     
   </url>
   
