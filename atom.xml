@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://erobaby.me/"/>
-  <updated>2016-05-23T15:30:33.000Z</updated>
+  <updated>2017-10-03T11:26:35.000Z</updated>
   <id>http://erobaby.me/</id>
   
   <author>
@@ -16,11 +16,75 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>常用正则表达式</title>
+    <link href="http://erobaby.me/2016/06/18/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://erobaby.me/2016/06/18/常用正则表达式/</id>
+    <published>2016-06-18T15:16:18.000Z</published>
+    <updated>2017-10-03T11:26:35.000Z</updated>
+    
+    <content type="html">&lt;p&gt;正则表达式——古老而又强大的文本处理工具。仅用一段简短的表达式语句，就能快速地实现一个复杂的业务逻辑。掌握正则表达式，让你的开发效率有一个质的飞跃。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;校验密码强度&lt;br&gt;密码的强度必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间&lt;br&gt;&lt;code&gt;^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;校验中文&lt;br&gt;字符串只能是中文&lt;br&gt;&lt;code&gt;^[\\u4e00-\\u9fa5]{0,}$&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;由数字，26个英文字母或下划线组成的字符串&lt;br&gt;&lt;code&gt;^\\w+$&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;校验E-Mail 地址&lt;br&gt;&lt;code&gt;[\\w!#$%&amp;amp;&amp;#39;*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&amp;amp;&amp;#39;*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;校验身份证号码&lt;br&gt;15位：&lt;br&gt;&lt;code&gt;^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$&lt;/code&gt;&lt;br&gt;18位：&lt;br&gt;&lt;code&gt;^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X)$&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;校验日期&lt;br&gt;“yyyy-mm-dd“ 格式的日期校验，已考虑平闰年&lt;br&gt;&lt;code&gt;^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;校验金额&lt;br&gt;金额校验，精确到2位小数&lt;br&gt;&lt;code&gt;^[0-9]+(.[0-9]{2})?$&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;校验手机号&lt;br&gt;下面是国内 13、15、18开头的手机号正则表达式&lt;br&gt;&lt;code&gt;^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;判断IE的版本&lt;br&gt;&lt;code&gt;^.*MSIE [5-8](?:\\.[0-9]+)?(?!.*Trident\\/[5-9]\\.0).*$&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;校验IP-v4地址&lt;br&gt;&lt;code&gt;\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;校验IP-v6地址&lt;br&gt;&lt;code&gt;(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;检查URL的前缀&lt;br&gt;&lt;code&gt;if (!s.match(/^[a-zA-Z]+:\\/\\//)){
+s = &amp;#39;http://&amp;#39; + s;}&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;提取URL链接&lt;br&gt;&lt;code&gt;^(f|ht){1}(tp|tps):\\/\\/([\\w-]+\\.)+[\\w-]+(\\/[\\w- ./?%&amp;amp;=]*)?&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;文件路径及扩展名校验&lt;br&gt;&lt;code&gt;^([a-zA-Z]\\:|\\\\)\\\\([^\\\\]+\\\\)*[^\\/:*?&amp;quot;&amp;lt;&amp;gt;|]+\\.txt(l)?$&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;提取Color Hex  Codes&lt;br&gt;&lt;code&gt;^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;提取网页图片&lt;br&gt;&lt;code&gt;\\&amp;lt; *[img][^\\\\&amp;gt;]*[src] *= *[\\&amp;quot;\\&amp;#39;]{0,1}([^\\&amp;quot;\\&amp;#39;\\ &amp;gt;]*)&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;提取页面超链接&lt;br&gt;&lt;code&gt;(&amp;lt;a\\s*(?!.*\\brel=)[^&amp;gt;]*)(href=&amp;quot;https?:\\/\\/)((?!(?:(?:www\\.)?&amp;#39;.implode(&amp;#39;|(?:www\\.)?&amp;#39;, $follow_list).&amp;#39;))[^&amp;quot;]+)&amp;quot;((?!.*\\brel=)[^&amp;gt;]*)(?:[^&amp;gt;]*)&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查找CSS属性&lt;br&gt;&lt;code&gt;^\\s*[a-zA-Z\\-]+\\s*[:]{1}\\s[a-zA-Z0-9\\s.#]+[;]{1}&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;抽取注释&lt;br&gt;&lt;code&gt;&amp;lt;!--(.*?)--&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;匹配HTML标签&lt;br&gt;&lt;code&gt;&amp;lt;\\/?\\w+((\\s+\\w+(\\s*=\\s*(?:&amp;quot;.*?&amp;quot;|&amp;#39;.*?&amp;#39;|[\\^&amp;#39;&amp;quot;&amp;gt;\\s]+))?)+\\s*|\\s*)\\/?&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;正则表达式——古老而又强大的文本处理工具。仅用一段简短的表达式语句，就能快速地实现一个复杂的业务逻辑。掌握正则表达式，让你的开发效率有一个质的飞跃。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="正则表达式" scheme="http://erobaby.me/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Nothing</title>
     <link href="http://erobaby.me/2016/05/23/Nothing/"/>
     <id>http://erobaby.me/2016/05/23/Nothing/</id>
     <published>2016-05-23T15:29:06.000Z</published>
-    <updated>2016-05-23T15:30:33.000Z</updated>
+    <updated>2016-06-18T15:20:27.000Z</updated>
     
     <content type="html">&lt;p&gt;Null&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
@@ -39,10 +103,10 @@
     <link href="http://erobaby.me/2016/05/22/NPM%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
     <id>http://erobaby.me/2016/05/22/NPM入门教程/</id>
     <published>2016-05-22T15:47:40.000Z</published>
-    <updated>2016-05-23T14:59:43.000Z</updated>
+    <updated>2017-10-03T11:05:20.000Z</updated>
     
     <content type="html">&lt;p&gt;NPM作为Node的模块管理和发布工具，作用与Ruby的gem、Python的pypl或setuptools、PHP的pear和.Net的Nuget一样。在当前前端工程化极速狂奔的年代，即使不做nodejs的开发，也需要学习和使用NPM的，谁叫grunt、bower、yeoman这一堆的工具都通过NPM发布呢？&lt;/p&gt;
-&lt;p&gt;本文为针对非nodejs的开发者整理的NPM使用说明。当然最好的教程还是&lt;a href=&quot;https://docs.npmjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方文档&lt;/a&gt;！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文为针对非nodejs的开发者整理的NPM使用说明。当然最好的教程还是&lt;a href=&quot;https://docs.npmjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方文档&lt;/a&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;什么是包&quot;&gt;&lt;a href=&quot;#什么是包&quot; class=&quot;headerlink&quot; title=&quot;什么是包&quot;&gt;&lt;/a&gt;什么是包&lt;/h3&gt;&lt;p&gt;odejs以包的形式组织程序模块，而包的定义却十分简单——包含文件内容符合规范package.json文件的目录或归档文件。并通过&lt;package-name&gt;@&lt;version&gt;来唯一标识每个包。&lt;/version&gt;&lt;/package-name&gt;&lt;/p&gt;
 &lt;h3 id=&quot;灵魂-package-json&quot;&gt;&lt;a href=&quot;#灵魂-package-json&quot; class=&quot;headerlink&quot; title=&quot;灵魂 package.json&quot;&gt;&lt;/a&gt;灵魂 package.json&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://images.cnitblog.com/blog/347002/201412/231712452182038.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;包的定义和NPM都围绕着package.json文件做文章，package.json文件其实就相当于JAVA中的MANIFEST.MF文件，用于存放模块的名称、版本、作者、机构、模块入口、依赖项等信息。首先我们通过&lt;code&gt;npm init&lt;/code&gt;命令在当前工作目录下以用户引导的方式创建一个全新的package.json文件。然后通过&lt;code&gt;npm help json&lt;/code&gt;命令打开帮助文档，并根据实际的项目需求自行初始化package.json的项目即可。下面将对基础配置项进行叙述。&lt;/p&gt;
@@ -139,7 +203,7 @@
     <summary type="html">
     
       &lt;p&gt;NPM作为Node的模块管理和发布工具，作用与Ruby的gem、Python的pypl或setuptools、PHP的pear和.Net的Nuget一样。在当前前端工程化极速狂奔的年代，即使不做nodejs的开发，也需要学习和使用NPM的，谁叫grunt、bower、yeoman这一堆的工具都通过NPM发布呢？&lt;/p&gt;
-&lt;p&gt;本文为针对非nodejs的开发者整理的NPM使用说明。当然最好的教程还是&lt;a href=&quot;https://docs.npmjs.com/&quot;&gt;官方文档&lt;/a&gt;！&lt;br&gt;
+&lt;p&gt;本文为针对非nodejs的开发者整理的NPM使用说明。当然最好的教程还是&lt;a href=&quot;https://docs.npmjs.com/&quot;&gt;官方文档&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
@@ -153,18 +217,83 @@
     <link href="http://erobaby.me/2016/05/22/%E5%AF%84%E7%94%9F%E5%85%BD/"/>
     <id>http://erobaby.me/2016/05/22/寄生兽/</id>
     <published>2016-05-22T09:25:21.000Z</published>
-    <updated>2016-05-23T15:04:17.000Z</updated>
+    <updated>2017-10-03T11:04:51.000Z</updated>
     
-    <content type="html">&lt;p&gt;&lt;strong&gt;人类保护动物是害怕孤独&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;保护环境是不想自我毁灭&lt;/strong&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;寄生于地球的人类&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;需要的或许真的是天敌吧&lt;/strong&gt;&lt;br&gt;&lt;img src=&quot;http://o7kir08j3.bkt.clouddn.com/16-5-22/92465300.jpg&quot; alt=&quot;寄生兽&quot;&gt;&lt;/p&gt;
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;新一，我查了【恶魔】这一词汇。与之最接近的生物，我觉得是人类，人类会残杀并捕食一切物种。我同伴的食谱中才不过一两种生物，算口味清淡的啦&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;blockquote&gt;
+&lt;p&gt;异种生物间 能够相互利用 相互厮杀&lt;br&gt;唯独无法相互理解&lt;br&gt;不 我们不能以自身的价值观去解读他人&lt;br&gt;自以为了解其他生物这种想法&lt;br&gt;其实是人类的自以为是&lt;br&gt;其他生物可能都不是人类的朋友&lt;br&gt;但是 就算不知是敌是友&lt;br&gt;它们都是值得尊重的共存者&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;保护生物是因为人类害怕孤独&lt;br&gt;保护环境是因为人类不想自我毁灭&lt;br&gt;人类从始自终都是在自我满足&lt;br&gt;但是我觉得这样也挺好&lt;br&gt;用人类的标准去批判人类是毫无意义的&lt;br&gt;所以 牺牲小我爱护地球这种话 根本就是自我矛盾&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不自相残杀怎么好意思叫人类？几千年来不都是这样吗，突然停了下来人口才从70亿直奔80亿的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;罪？那是人类们以自己的标准任意决定的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;人类真矛盾，平时杀牛杀猪脸色都不会变，现在轮到自己了反而那么紧张。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;只是因为对人类有害的那种生物就没有生存的权利吗？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个是为了生存不择手段的物种，一个则在纯粹的战斗中体验着乐趣的物种；一个是没有帮手就会胆小如鼠的物种，一个是只剩一人也不慌不忙的物种；一个是把武器的力量当作自己的力量得意洋洋的物种，一个是赤手空拳只相信自己能力的物种……到底什么叫丑陋什么叫标准？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我一直在思考，我究竟为什么降生到这个世界上，解开一个疑问，又会浮现下一个疑问。追寻起源，追寻终焉。思考的同时，只是在一步步地行走。或许走再远都只能看到同样的风景，或许放弃行走也是个不错的选择，即使被宣告一切就此结束，顶多觉得”哦是么”罢了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总有一天，人类会意识到乱扔垃圾是比杀人更重的罪。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;别只顾自身繁荣，多为整个生物圈想想，不然怎配被叫做万物灵长。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;别只顾自身繁荣，多为整个生物圈想想，不然怎配被叫做万物灵长。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;但凡［杀戮］世上没有生物能与人类匹敌。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;与其最后变卦，最初就别冠冕堂皇。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;某一天…在路上认识的…变成朋友的生物，突然死了，这个时候为什么会这么悲伤呢？因为人类就是这么空閒的动物！但是，这就是人类…最大的优点。内心有余暇的生物，是多么的美好啊！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;和寄生于人类承担着维持生态平衡的重任的我们相比的话，你们人类才是啃食地球的寄生虫！ 不，该叫寄生兽&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在全体生物看来，我们人类大概才是毒，而他们才是药吧……&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://o7kir08j3.bkt.clouddn.com/16-5-22/92465300.jpg&quot; alt=&quot;寄生兽&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;人类保护动物是害怕孤独&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;保护环境是不想自我毁灭&lt;/strong&gt;&lt;br&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;新一，我查了【恶魔】这一词汇。与之最接近的生物，我觉得是人类，人类会残杀并捕食一切物种。我同伴的食谱中才不过一两种生物，算口味清淡的啦&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
