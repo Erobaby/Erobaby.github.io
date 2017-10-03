@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://erobaby.me/"/>
-  <updated>2017-10-03T11:26:35.000Z</updated>
+  <updated>2017-10-03T12:57:53.000Z</updated>
   <id>http://erobaby.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://erobaby.me/2016/06/18/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     <id>http://erobaby.me/2016/06/18/常用正则表达式/</id>
     <published>2016-06-18T15:16:18.000Z</published>
-    <updated>2017-10-03T11:26:35.000Z</updated>
+    <updated>2017-10-03T12:57:53.000Z</updated>
     
     <content type="html">&lt;p&gt;正则表达式——古老而又强大的文本处理工具。仅用一段简短的表达式语句，就能快速地实现一个复杂的业务逻辑。掌握正则表达式，让你的开发效率有一个质的飞跃。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -74,27 +74,12 @@ s = &amp;#39;http://&amp;#39; + s;}&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
+      <category term="编程" scheme="http://erobaby.me/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="其他" scheme="http://erobaby.me/categories/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/"/>
+    
     
       <category term="正则表达式" scheme="http://erobaby.me/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Nothing</title>
-    <link href="http://erobaby.me/2016/05/23/Nothing/"/>
-    <id>http://erobaby.me/2016/05/23/Nothing/</id>
-    <published>2016-05-23T15:29:06.000Z</published>
-    <updated>2016-06-18T15:20:27.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Null&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Null&lt;br&gt;
-    
-    </summary>
-    
     
   </entry>
   
@@ -103,7 +88,7 @@ s = &amp;#39;http://&amp;#39; + s;}&lt;/code&gt;&lt;/p&gt;
     <link href="http://erobaby.me/2016/05/22/NPM%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
     <id>http://erobaby.me/2016/05/22/NPM入门教程/</id>
     <published>2016-05-22T15:47:40.000Z</published>
-    <updated>2017-10-03T11:05:20.000Z</updated>
+    <updated>2017-10-03T13:10:12.000Z</updated>
     
     <content type="html">&lt;p&gt;NPM作为Node的模块管理和发布工具，作用与Ruby的gem、Python的pypl或setuptools、PHP的pear和.Net的Nuget一样。在当前前端工程化极速狂奔的年代，即使不做nodejs的开发，也需要学习和使用NPM的，谁叫grunt、bower、yeoman这一堆的工具都通过NPM发布呢？&lt;/p&gt;
 &lt;p&gt;本文为针对非nodejs的开发者整理的NPM使用说明。当然最好的教程还是&lt;a href=&quot;https://docs.npmjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方文档&lt;/a&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -118,11 +103,11 @@ s = &amp;#39;http://&amp;#39; + s;}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;main&lt;/strong&gt;，必选项，模块入口文件相对路径（相对于模块根目录）。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt; description&lt;/strong&gt;，可选项，表示模块功能描述，显示在&lt;code&gt;npm search &amp;lt;package-name&amp;gt;&lt;/code&gt;中&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;keywords&lt;/strong&gt;，可选项，数组类型，表示模块的关键字，显示在&lt;code&gt;npm search &amp;lt;package-name&amp;gt;&lt;/code&gt;中&lt;br&gt;&lt;strong&gt;author&lt;/strong&gt;，可选项，表示发起者信息。示例如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;quot;author&amp;quot;:&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;name&amp;quot;: &amp;quot;fsjohnhuang&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;url&amp;quot;: &amp;quot;http://fsjohnhuang.cnblogs.com/&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;author&quot;&lt;/span&gt;:&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;fsjohnhuang&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;url&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;http://fsjohnhuang.cnblogs.com/&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;strong&gt;engines&lt;/strong&gt;，可选项，依赖的node版本。示例如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;quot;engines&amp;quot;:&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;node&amp;quot;: &amp;quot;&amp;gt;= 0.8.0&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;engines&quot;&lt;/span&gt;:&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;node&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;&amp;gt;= 0.8.0&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;strong&gt;repository&lt;/strong&gt;，可选项，源码托管地址。示例如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;quot;repository&amp;quot;:&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;type&amp;quot;: &amp;quot;git&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;url&amp;quot;: &amp;quot;https://github.com/fsjohnhuang/iPromise.git&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;repository&quot;&lt;/span&gt;:&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;type&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;git&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;url&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;https://github.com/fsjohnhuang/iPromise.git&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;strong&gt;scripts&lt;/strong&gt;，可选项，自定义在cli中输入npm 时实际执行的程序。npm默认提供大量的script供我们调用。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;dependencies&lt;/strong&gt;和&lt;strong&gt;devDependencies&lt;/strong&gt;，可选项，用于配置模块的生产环境依赖包和开发环境依赖包。当执行npm install时，npm会根据这两个配置项的值去下载安装相关的依赖包。两者的区别是devDependencies是模块开发过程的依赖包（如：grunt只在开发时有用的模块），并且当其他模块需要依赖当前模块时，当通过npm install &lt;package-name&gt;时会自动下载安装dependencies的包而不会下载devDependencies的包。&lt;/package-name&gt;&lt;/p&gt;
 &lt;h3 id=&quot;NPM的配置信息&quot;&gt;&lt;a href=&quot;#NPM的配置信息&quot; class=&quot;headerlink&quot; title=&quot;NPM的配置信息&quot;&gt;&lt;/a&gt;NPM的配置信息&lt;/h3&gt;&lt;p&gt;现在我们对package.json有一定的了解了，现在就到理论+实践时间咯。在实践之前我们要先配置一下NPM的资源库（国内被墙，你懂的），内网用户还要配置一下网络代理地址等信息。&lt;/p&gt;
@@ -217,7 +202,7 @@ s = &amp;#39;http://&amp;#39; + s;}&lt;/code&gt;&lt;/p&gt;
     <link href="http://erobaby.me/2016/05/22/%E5%AF%84%E7%94%9F%E5%85%BD/"/>
     <id>http://erobaby.me/2016/05/22/寄生兽/</id>
     <published>2016-05-22T09:25:21.000Z</published>
-    <updated>2017-10-03T11:04:51.000Z</updated>
+    <updated>2017-10-03T12:58:28.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;新一，我查了【恶魔】这一词汇。与之最接近的生物，我觉得是人类，人类会残杀并捕食一切物种。我同伴的食谱中才不过一两种生物，算口味清淡的啦&lt;/p&gt;
@@ -296,6 +281,10 @@ s = &amp;#39;http://&amp;#39; + s;}&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
+    
+      <category term="动漫" scheme="http://erobaby.me/categories/%E5%8A%A8%E6%BC%AB/"/>
+    
+      <category term="随笔" scheme="http://erobaby.me/categories/%E5%8A%A8%E6%BC%AB/%E9%9A%8F%E7%AC%94/"/>
     
     
       <category term="动漫" scheme="http://erobaby.me/tags/%E5%8A%A8%E6%BC%AB/"/>

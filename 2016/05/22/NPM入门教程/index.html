@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -90,7 +97,7 @@
 <meta property="og:description" content="NPM作为Node的模块管理和发布工具，作用与Ruby的gem、Python的pypl或setuptools、PHP的pear和.Net的Nuget一样。在当前前端工程化极速狂奔的年代，即使不做nodejs的开发，也需要学习和使用NPM的，谁叫grunt、bower、yeoman这一堆的工具都通过NPM发布呢？
 本文为针对非nodejs的开发者整理的NPM使用说明。当然最好的教程还是官方文档">
 <meta property="og:image" content="http://images.cnitblog.com/blog/347002/201412/231712452182038.png">
-<meta property="og:updated_time" content="2017-10-03T11:05:20.000Z">
+<meta property="og:updated_time" content="2017-10-03T13:10:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NPM入门教程">
 <meta name="twitter:description" content="NPM作为Node的模块管理和发布工具，作用与Ruby的gem、Python的pypl或setuptools、PHP的pear和.Net的Nuget一样。在当前前端工程化极速狂奔的年代，即使不做nodejs的开发，也需要学习和使用NPM的，谁叫grunt、bower、yeoman这一堆的工具都通过NPM发布呢？
@@ -118,7 +125,7 @@
       apiKey: '7b282d50f26d393eba2de29d77d48b16',
       indexName: 'erobaby-blog',
       hits: {"per_page":10},
-      labels: {"input_placeholder":"输入关键字","hits_empty":"没有搜索到内容: ${query}","hits_stats":"${hits} 查询耗时 ${time} ms"}
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没有搜索到内容: ${query}","hits_stats":"查询出${hits}条记录 用时${time}毫秒"}
     }
   };
 </script>
@@ -245,16 +252,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-website">
-          <a href="/website/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br />
-            
-            常用网站
-          </a>
-        </li>
-      
 
       
         <li class="menu-item menu-item-search">
@@ -373,6 +370,17 @@
 
           
           
+             <span id="/2016/05/22/NPM入门教程/" class="leancloud_visitors" data-flag-title="NPM入门教程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -406,11 +414,11 @@
 <p><strong>main</strong>，必选项，模块入口文件相对路径（相对于模块根目录）。</p>
 <p><strong> description</strong>，可选项，表示模块功能描述，显示在<code>npm search &lt;package-name&gt;</code>中</p>
 <p><strong>keywords</strong>，可选项，数组类型，表示模块的关键字，显示在<code>npm search &lt;package-name&gt;</code>中<br><strong>author</strong>，可选项，表示发起者信息。示例如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;author&quot;:&#123;</span><br><span class="line">    &quot;name&quot;: &quot;fsjohnhuang&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;http://fsjohnhuang.cnblogs.com/&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"author"</span>:&#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"fsjohnhuang"</span>,</span><br><span class="line">    <span class="string">"url"</span>: <span class="string">"http://fsjohnhuang.cnblogs.com/"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>engines</strong>，可选项，依赖的node版本。示例如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;engines&quot;:&#123;</span><br><span class="line">    &quot;node&quot;: &quot;&gt;= 0.8.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"engines"</span>:&#123;</span><br><span class="line">    <span class="string">"node"</span>: <span class="string">"&gt;= 0.8.0"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>repository</strong>，可选项，源码托管地址。示例如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;repository&quot;:&#123;</span><br><span class="line">    &quot;type&quot;: &quot;git&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;https://github.com/fsjohnhuang/iPromise.git&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"repository"</span>:&#123;</span><br><span class="line">    <span class="string">"type"</span>: <span class="string">"git"</span>,</span><br><span class="line">    <span class="string">"url"</span>: <span class="string">"https://github.com/fsjohnhuang/iPromise.git"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>scripts</strong>，可选项，自定义在cli中输入npm 时实际执行的程序。npm默认提供大量的script供我们调用。</p>
 <p><strong>dependencies</strong>和<strong>devDependencies</strong>，可选项，用于配置模块的生产环境依赖包和开发环境依赖包。当执行npm install时，npm会根据这两个配置项的值去下载安装相关的依赖包。两者的区别是devDependencies是模块开发过程的依赖包（如：grunt只在开发时有用的模块），并且当其他模块需要依赖当前模块时，当通过npm install <package-name>时会自动下载安装dependencies的包而不会下载devDependencies的包。</package-name></p>
 <h3 id="NPM的配置信息"><a href="#NPM的配置信息" class="headerlink" title="NPM的配置信息"></a>NPM的配置信息</h3><p>现在我们对package.json有一定的了解了，现在就到理论+实践时间咯。在实践之前我们要先配置一下NPM的资源库（国内被墙，你懂的），内网用户还要配置一下网络代理地址等信息。</p>
@@ -496,7 +504,54 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
 
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.jpg" alt="Erobaby 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Erobaby 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Erobaby
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://erobaby.me/2016/05/22/NPM入门教程/" title="NPM入门教程">http://erobaby.me/2016/05/22/NPM入门教程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -526,8 +581,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/23/Nothing/" rel="prev" title="Nothing">
-                Nothing <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/18/常用正则表达式/" rel="prev" title="常用正则表达式">
+                常用正则表达式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -611,12 +666,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -642,6 +706,20 @@
           
 
           <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/erobaby" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:wwb0111@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
             
           </div>
 
@@ -686,7 +764,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -700,7 +778,11 @@
 
 
 
+  <span class="post-meta-divider">|</span>
 
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
 
 
 
@@ -745,6 +827,8 @@
   
 
 
+  
+
 
 
 
@@ -772,6 +856,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -842,8 +929,8 @@
         el: '#vcomments' ,
         verify: false,
         notify: false,
-        app_id: 'pggUcB7AUKk1lzTuYNVxlVWD-gzGzoHsz',
-        app_key: 'sPlyxh3bleFTqXgG31PTiuXa',
+        app_id: 'ztmN4nwkcow75gYJfJT0uc8U-gzGzoHsz',
+        app_key: 'a2KfcXILoztLVyQn2UO7rhpk',
         placeholder: '请输入评论内容'
     });
   </script>
@@ -870,6 +957,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ztmN4nwkcow75gYJfJT0uc8U-gzGzoHsz", "a2KfcXILoztLVyQn2UO7rhpk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
