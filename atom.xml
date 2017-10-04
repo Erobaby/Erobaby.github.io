@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://erobaby.me/"/>
-  <updated>2017-10-03T12:57:53.000Z</updated>
+  <updated>2017-10-04T10:01:13.000Z</updated>
   <id>http://erobaby.me/</id>
   
   <author>
@@ -14,6 +14,115 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>防止搬瓦工被封的注意事项</title>
+    <link href="http://erobaby.me/2017/10/04/%E9%98%B2%E6%AD%A2%E6%90%AC%E7%93%A6%E5%B7%A5%E8%A2%AB%E5%B0%81%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
+    <id>http://erobaby.me/2017/10/04/防止搬瓦工被封的注意事项/</id>
+    <published>2017-10-04T09:35:30.000Z</published>
+    <updated>2017-10-04T10:01:13.000Z</updated>
+    
+    <content type="html">&lt;p&gt;善哉善哉，南无阿弥陀佛&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;更新系统&quot;&gt;&lt;a href=&quot;#更新系统&quot; class=&quot;headerlink&quot; title=&quot;更新系统&quot;&gt;&lt;/a&gt;更新系统&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;yum update -y&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;禁用邮件端口&quot;&gt;&lt;a href=&quot;#禁用邮件端口&quot; class=&quot;headerlink&quot; title=&quot;禁用邮件端口&quot;&gt;&lt;/a&gt;禁用邮件端口&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如果服务器被用来发送垃圾邮件，分分钟被封。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;iptables -A OUTPUT -p tcp -m multiport --dport 24,25,50,57,105,106,109,110,143,158,209,218,220,465,587 -j REJECT --reject-with tcp-reset&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iptables -A OUTPUT -p tcp -m multiport --dport 993,995,1109,24554,60177,60179 -j REJECT --reject-with tcp-reset&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iptables -A OUTPUT -p udp -m multiport --dport 24,25,50,57,105,106,109,110,143,158,209,218,220,465,587 -j DROP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iptables -A OUTPUT -p udp -m multiport --dport 993,995,1109,24554,60177,60179 -j DROP&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;保存规则：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;iptables-save &amp;gt; /etc/sysconfig/iptables&lt;/code&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  实际上到这一步已经足够，重启会生效。但是如果没有保存到默认的配置文件，就需要使用下面的命令&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;恢复规则：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;iptables-restore &amp;gt; /etc/sysconfig/iptables&lt;/code&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  若想开机自动启用脚本，则可以使用以下命令放到系统初始化Shell脚本/etc/rc.d/rc.local中&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;echo &amp;#39;/sbin/iptables-restore /etc/sysconfig/iptables&amp;#39;  &amp;gt;&amp;gt; /etc/rc.d/rc.local&lt;/code&gt;&lt;br&gt;  此外使用 #service iptables save，会将规则保存到/etc/sysconfig/iptables，用此命令保存的规则开机会自动生效，所以为了统一期间，建议以后规则都保存在/etc/sysconfig/iptables下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看iptables规则：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;iptables -L&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;使用ss时，不要勾选允许来自局域网的连接&quot;&gt;&lt;a href=&quot;#使用ss时，不要勾选允许来自局域网的连接&quot; class=&quot;headerlink&quot; title=&quot;使用ss时，不要勾选允许来自局域网的连接&quot;&gt;&lt;/a&gt;使用ss时，不要勾选允许来自局域网的连接&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;如果是公网IP，容易被人扫到做坏事导致被封。
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;尽可能的本分&quot;&gt;&lt;a href=&quot;#尽可能的本分&quot; class=&quot;headerlink&quot; title=&quot;尽可能的本分&quot;&gt;&lt;/a&gt;尽可能的本分&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;有人用它DDoS别人，被搬瓦工识别为VPS受到DDoS攻击，然后被封。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;转载自 &lt;a href=&quot;http://blog.csdn.net/letuscc/article/details/53382967&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/letuscc/article/details/53382967&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;善哉善哉，南无阿弥陀佛&lt;br&gt;
+    
+    </summary>
+    
+      <category term="和谐" scheme="http://erobaby.me/categories/%E5%92%8C%E8%B0%90/"/>
+    
+    
+      <category term="和谐" scheme="http://erobaby.me/tags/%E5%92%8C%E8%B0%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSH免密码登陆</title>
+    <link href="http://erobaby.me/2017/10/04/SSH%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/"/>
+    <id>http://erobaby.me/2017/10/04/SSH免密码登陆/</id>
+    <published>2017-10-04T09:04:54.000Z</published>
+    <updated>2017-10-04T12:10:10.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;两种方式: 使用ssh-copy-id命令和手动上传公钥&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;方法一-推荐&quot;&gt;&lt;a href=&quot;#方法一-推荐&quot; class=&quot;headerlink&quot; title=&quot;方法一(推荐)&quot;&gt;&lt;/a&gt;方法一(推荐)&lt;/h2&gt;&lt;p&gt;使用下例中ssky-keygen和ssh-copy-id，仅需通过3个步骤的简单设置而无需输入密码就能登录远程Linux主机。&lt;/p&gt;
+&lt;p&gt;ssh-keygen 创建公钥和密钥。&lt;br&gt;ssh-copy-id 把本地主机的公钥复制到远程主机的authorized_keys文件上。&lt;br&gt;ssh-copy-id 也会给远程主机的用户主目录（home）和~/.ssh, 和~/.ssh/authorized_keys设置合适的权限 。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;步骤1: 用 ssh-key-gen 在本地主机上创建公钥和密钥&lt;br&gt; ligh@local-host$ ssh-keygen -t  rsa&lt;br&gt; Enter file in which to save the key (/home/jsmith/.ssh/id_rsa):[Enter key]&lt;br&gt; Enter passphrase (empty for no passphrase): [Press enter key]&lt;br&gt; Enter same passphrase again: [Pess enter key]&lt;br&gt; Your identification has been saved in /home/jsmith/.ssh/id_rsa.&lt;br&gt; Your public key has been saved in /home/jsmith/.ssh/id_rsa.pub.&lt;br&gt; The key fingerprint is: 33:b3:fe:af:95:95:18:11:31:d5:de:96:2f:f2:35:f9&lt;br&gt; ligh@local-host&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;步骤2: 用 ssh-copy-id 把公钥复制到远程主机上&lt;br&gt; ligh@local-host$ ssh-copy-id -i ~/.ssh/id_rsa.pub  root@192.168.0.3&lt;br&gt; ligh@remote-host‘s password:&lt;br&gt; Now try logging into the machine, with ―ssh ?remote-host‘‖, and check in:&lt;br&gt; .ssh/authorized_keys to make sure we haven‘t added extra keys that you weren‘t expecting.&lt;br&gt; [注: ssh-copy-id 把密钥追加到远程主机的 .ssh/authorized_key 上.]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;步骤3: 直接登录远程主机&lt;br&gt; ligh@local-host$ ssh remote-host&lt;br&gt; Last login: Sun Nov 16 17:22:33 2008 from 192.168.1.2&lt;br&gt; [注: SSH 不会询问密码.]&lt;br&gt; ligh@remote-host$&lt;br&gt; [注: 你现在已经登录到了远程主机上]&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;方法二&quot;&gt;&lt;a href=&quot;#方法二&quot; class=&quot;headerlink&quot; title=&quot;方法二&quot;&gt;&lt;/a&gt;方法二&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;就是为了让两个linux机器之间使用ssh不需要用户名和密码。采用了数字签名RSA或者DSA来完成这个操作&lt;/li&gt;
+&lt;li&gt;模型分析&lt;br&gt; 假设 A （192.168.20.59）为客户机器，B（192.168.20.60）为目标机；&lt;br&gt; 要达到的目的：&lt;br&gt; A机器ssh登录B机器无需输入密码；&lt;br&gt; 加密方式选 rsa|dsa均可以，默认dsa&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;具体操作流程&quot;&gt;&lt;a href=&quot;#具体操作流程&quot; class=&quot;headerlink&quot; title=&quot;具体操作流程&quot;&gt;&lt;/a&gt;具体操作流程&lt;/h3&gt;&lt;p&gt;单向登陆的操作过程（能满足上边的目的）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;登录A机器 &lt;/li&gt;
+&lt;li&gt;ssh-keygen -t [rsa|dsa]，将会生成密钥文件和私钥文件 id_rsa,id_rsa.pub或id_dsa,id_dsa.pub&lt;/li&gt;
+&lt;li&gt;将 .pub 文件复制到B机器的 .ssh 目录， 并 cat id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys&lt;/li&gt;
+&lt;li&gt;大功告成，从A机器登录B机器的目标账户，不再需要密码了；（直接运行 #ssh 192.168.20.60）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;转载自 &lt;a href=&quot;http://blog.csdn.net/bravezhe/article/details/7302800&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/bravezhe/article/details/7302800&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;两种方式: 使用ssh-copy-id命令和手动上传公钥&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://erobaby.me/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://erobaby.me/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>常用正则表达式</title>
